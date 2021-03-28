@@ -1,22 +1,25 @@
 import pygame
+import sys
+import os
 
 
 class Game:
     def __init__(self):
-        self.size = self.width, self.height = 1600, 900
+        self.size = self.width, self.height = 1366, 768
         self.speed = [2, 2]
         self.black = 0, 0, 0
+        self.dir = os.path.dirname(__file__)
 
     def run_game(self):
         pygame.init()
         screen = pygame.display.set_mode(self.size, flags=pygame.DOUBLEBUF)
-        ball = pygame.image.load("intro_ball.gif")
+        ball = pygame.image.load(os.path.join(self.dir, "intro_ball.gif"))
         ballrect = ball.get_rect()
 
         while True:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    pygame.exit()
+                    sys.exit()
 
             ballrect = ballrect.move(self.speed)
             if ballrect.left < 0 or ballrect.right > self.width:
