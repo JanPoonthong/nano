@@ -5,7 +5,7 @@ import os
 
 class Game:
     def __init__(self):
-        self.size = self.width, self.height = 1366, 768
+        self.size = self.width, self.height = 800, 800
         self.speed = [2, 2]
         self.black = 0, 0, 0
         self.dir = os.path.dirname(__file__)
